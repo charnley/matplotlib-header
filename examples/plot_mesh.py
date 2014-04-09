@@ -36,6 +36,7 @@ x_list = np.arange(-10, 10, 0.1)
 y_gauss = [gaussian(x) for x in x_list]
 y_lortenz = [lorentzian(x) for x in x_list]
 
+
 plt.title('Distributions')
 
 plt.plot(x_list, y_gauss, label='Gauss')

@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+import re
 
 ### Fonts
-plt.rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
+#plt.rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
 # plt.rc('font',**{'family':'serif','serif':['Palatino']})
 plt.rc('text', usetex=True)     # Use Latex formatting
 plt.rc('text.latex', preamble='\usepackage{helvet}') # Use sans-serif font
@@ -12,16 +14,52 @@ plt.rc('font', size=15)         # Fontsize
 plt.rc('xtick', labelsize=15)   # Fontsize for x-ticks
 plt.rc('ytick', labelsize=15)   # Fontsize for y-ticks
 
+plt.rc('legend', fontsize=15)
 
 ## Colors
+# Default colors are
+# {'c': (0.0, 0.75, 0.75),
+#  'b': (0.0, 0.0, 1.0),
+#  'w': (1.0, 1.0, 1.0),
+#  'g': (0.0, 0.5, 0.0),
+#  'y': (0.75, 0.75, 0),
+#  'k': (0.0, 0.0, 0.0),
+#  'r': (1.0, 0.0, 0.0),
+#  'm': (0.75, 0, 0.75)}
+#
+
+
+def hex2color(s):
+    """
+    Function from MPL lib.
+
+    Take a hex string *s* and return the corresponding rgb 3-tuple
+    Example: #efefef -> (0.93725, 0.93725, 0.93725)
+    """
+    hexColorPattern = re.compile("\A#[a-fA-F0-9]{6}\Z")
+    if not isinstance(s, basestring):
+        raise TypeError('hex2color requires a string argument')
+    if hexColorPattern.match(s) is None:
+        raise ValueError('invalid hex color string "%s"' % s)
+    return tuple([int(n, 16)/255.0 for n in (s[1:3], s[3:5], s[5:7])])
+
+
 # Default color cycle for plot lines
-plt.rc('axes', color_cycle = [
-        'e41a1c',
-        '377eb8',
-        '4daf4a',
-        '984ea3',
-        'ff7f00',
-        'ffff33']);
+# plt.rc('axes', color_cycle = [
+#         'e41a1c',
+#         '377eb8',
+#         '4daf4a',
+#         '984ea3',
+#         'ff7f00',
+#         'ffff33']);
+
+
+mpl.colors.ColorConverter.colors['r'] = hex2color('#e41a1c')
+mpl.colors.ColorConverter.colors['b'] = hex2color('#377eb8')
+mpl.colors.ColorConverter.colors['g'] = hex2color('#4daf4a')
+mpl.colors.ColorConverter.colors['p'] = hex2color('#984ea3')
+mpl.colors.ColorConverter.colors['y'] = hex2color('#ff7f00')
+
 
 
 ### Lines

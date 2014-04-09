@@ -21,8 +21,8 @@ I dislike the default colors in matplotlib (who doesn't), so I changed them to s
 
 Description | Default MPL | `mpl_header`
 --- | --- | ---
-Standard XY plot with some normal distributions | ![Before](examples/figure_xy_before.png) | ![After](examples/figure_xy_after.png) 
-Another XY plot with some normal distributions | `example_before.png` | `example_after.png`
+XY plot with some distributions | ![Before](examples/figure_xy_before.png) | ![After](examples/figure_xy_after.png) 
+Scatter plot | ![Before](examples/figure_scatter_before.png) | ![After](examples/figure_scatter_after.png) 
 2D colormap plot | `example_before.png` | `example_after.png`
 
 
