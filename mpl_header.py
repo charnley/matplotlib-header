@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 plt.rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
 # plt.rc('font',**{'family':'serif','serif':['Palatino']})
 plt.rc('text', usetex=True)     # Use Latex formatting
-plt.rc('text.latex', preamble=r'\usepackage{cmbright}') # Use sans-serif font
+plt.rc('text.latex', preamble='\usepackage{helvet}') # Use sans-serif font
 
 plt.rc('font', size=15)         # Fontsize
 plt.rc('xtick', labelsize=15)   # Fontsize for x-ticks
