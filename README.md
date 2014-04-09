@@ -9,19 +9,20 @@ Nothing fancy.
 This is based on [http://matplotlib.org/users/customizing.html](matplotlib.org/users/customizing.html).
 
 
-# Font Choice
+## Font Choice
 
 Most journals want either sans-serif or specifically Arial/Helvetica.
 
-# Color Choice
+## Color Choice
 
 I dislike the default colors in matplotlib (who doesn't), so I changed them to some colors which are still clear, but doesn't make you vomit.
 
-# Examples
+## Examples
 
-Markdown | Less | Pretty
+Description | Default MPL | `mpl_header`
 --- | --- | ---
-*Still* | `renders` | **nicely**
-1 | 2 | 3
+Standard XY plot with some normal distributions | `example_before.png` | `example_after.png`
+Another XY plot with some normal distributions | `example_before.png` | `example_after.png`
+2D colormap plot | `example_before.png` | `example_after.png`
 
 
