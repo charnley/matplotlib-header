@@ -7,45 +7,52 @@ import matplotlib.pyplot as plt
 
 import numpy as np
 
+np.random.seed(500)
 
-def gaussian(x, a=1.0, b=1.0, c=1.0, d=0.0):
-    """ Normal distribution
+def gaussian(x, y, a=1.0, sigma_x=1.5, sigma_y=1.0, x_0=0.0, y_0=0.0):
+    """ Gaussian Function
 
     http://en.wikipedia.org/wiki/Gaussian_function
 
     """
+    return a*np.exp(-((x-x_0)**2/(2*sigma_x**2)+(y-y_0)**2/(2*sigma_y**2)))
 
-    return a*np.exp(-(x-b)**2/(2*c**2))+d
+# Data
 
+X = np.arange(-3.0, 3.0, 0.1)
+Y = np.arange(-3.0, 3.0, 0.1)
 
-def lorentzian(x):
-    """ Lorentz(ian) function
+N = len(X)
 
-    http://en.wikipedia.org/wiki/Cauchy_distribution
+Z = np.zeros((N, N))
 
-    """
-
-    a = 0.9
-    b = -2.0
-
-    return 1.0/(np.pi*a*(1+((x-b)/a)**2))
-
+for i in xrange(N):
+    for j in xrange(N):
+        Z[i,j] = gaussian(X[i], Y[j])
 
 
-x_list = np.arange(-10, 10, 0.1)
-y_gauss = [gaussian(x) for x in x_list]
-y_lortenz = [lorentzian(x) for x in x_list]
+# Plot
+
+extent = [X[0], X[-1], Y[0], Y[-1]]
+
+im = plt.imshow(Z,
+                interpolation='nearest',
+                extent=extent,
+                aspect='auto',
+                origin='lower',
+                cmap='Spectral')
+
+plt.xlabel('$x$-direction')
+plt.ylabel('$y$-direction')
+plt.title('Gaussian')
 
 
-plt.title('Distributions')
+plt.grid(False)
 
-plt.plot(x_list, y_gauss, label='Gauss')
-plt.plot(x_list, y_lortenz, label='Lorentz')
+# Colorbar
+cbar = plt.colorbar(im)
+cbar.set_label('Propability [$p(x,y)$]', rotation=270)
 
-plt.legend(loc='upper left')
+plt.savefig('figure_mesh.png')
 
-plt.ylabel('Probability [$p(x)$]')
-plt.xlabel('Position [$x$]')
-
-plt.savefig('figure_xy.png')
 

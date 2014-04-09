@@ -23,6 +23,6 @@ Description | Default MPL | `mpl_header`
 --- | --- | ---
 XY plot with some distributions | ![Before](examples/figure_xy_before.png) | ![After](examples/figure_xy_after.png) 
 Scatter plot | ![Before](examples/figure_scatter_before.png) | ![After](examples/figure_scatter_after.png) 
-2D colormap plot | `example_before.png` | `example_after.png`
+Colormap | ![Before](examples/figure_mesh_before.png) | ![After](examples/figure_mesh_after.png) 
 
 
